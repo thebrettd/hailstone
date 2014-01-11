@@ -1,0 +1,4 @@
+hailstone
+=========
+
+Hailstone sequence computation
