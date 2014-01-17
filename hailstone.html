@@ -1,0 +1,72 @@
+<head>
+    <title>hailstone</title>
+</head>
+
+<body>
+
+<div class="jumbotron">
+    <h1>Welcome to <a href="http://plus.maths.org/content/mathematical-mysteries-hailstone-sequences">hailstone.</a>
+    </h1>
+
+    <p>Enter a number (>1) to seed the clouds</p>
+</div>
+
+<div class="container">
+    {{> hailstoneForm}}
+    {{> hailstoneVisualization}}
+</div>
+
+</body>
+
+<template name="hailstoneForm">
+    <div class="panel panel-default">
+        <div class="panel-heading"><h3 class="panel-title">Seed</h3></div>
+
+        <div class="panel-body">
+            <div class="input-group"><input type="text" id="seed" class="form-control" placeholder="Seed"></div>
+
+            <button type="button" class="btn btn-primary">Seed</button>
+
+        </div>
+
+    </div>
+</template>
+
+<template name="hailstoneVisualization">
+    <div class="panel panel-default">
+        <div class="panel-heading"><h3 class="panel-title">Visualization for seed: {{seed}}</h3></div>
+
+        <div class="panel-body"><p>SequenceSize: {{sequenceSize}}</p>
+            <button type="button" class="btn btn-primary">Show/Hide sequence</button>
+
+            <div id="sequence" class="{{sequenceClass}}">
+                <table class="table table-condensed table-hover">
+                    <thead>
+                    <tr>
+                        <th>Stone</th>
+
+                    </tr>
+
+                    </thead>
+
+                    <tbody>
+                    {{#each sequence}}
+                    <tr>
+                        <td>{{this}}</td>
+                    </tr>
+                    {{/each}}
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+        <div id="D3">
+            {{#constant}}
+            {{/constant}}
+        </div>
+
+</template>
+
